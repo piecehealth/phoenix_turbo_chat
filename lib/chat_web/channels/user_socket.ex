@@ -1,6 +1,8 @@
 defmodule ChatWeb.UserSocket do
   use Phoenix.Socket
 
+  channel "turbo-streams:*", PhoenixTurbo.Channel
+
   ## Channels
   # channel "room:*", ChatWeb.RoomChannel
 

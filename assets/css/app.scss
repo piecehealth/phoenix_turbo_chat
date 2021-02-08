@@ -1,6 +1,11 @@
 /* This file is for your main application css. */
 @import "./phoenix.css";
 
+turbo-frame {
+  display: block;
+  border: 1px solid blue;
+}
+
 /* Alerts and form errors */
 .alert {
   padding: 15px;

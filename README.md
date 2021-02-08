@@ -1,5 +1,7 @@
 # Chat
 
+A sample app for demonstrating [phoenix_turbo_chat](https://github.com/piecehealth/phoenix_turbo).
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`

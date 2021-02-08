@@ -1,0 +1,7 @@
+<h1>Edit Room</h1>
+
+<turbo-frame id="room">
+  <%= render "form.html", Map.put(assigns, :action, Routes.room_path(@conn, :update, @room)) %>
+</turbo-frame>
+
+<span><%= link "Back", to: Routes.room_path(@conn, :index) %></span>

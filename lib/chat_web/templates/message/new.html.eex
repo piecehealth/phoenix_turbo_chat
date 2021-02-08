@@ -1,0 +1,16 @@
+<h1>New Message</h1>
+
+<turbo-frame id="new_message" target="_top">
+  <%= form_for(
+    @changeset,
+    Routes.room_message_path(@conn, :create, @room),
+    [data: [controller: "reset-form", action: "turbo:submit-end->reset-form#reset"]],
+  fn f -> %>
+    <div class="field">
+      <%= text_input f, :content %>
+      <%= submit "Send" %>
+    </div>
+  <% end) %>
+</turbo-frame>
+
+<%= link "Back", to: Routes.room_path(@conn, :show, @room) %>

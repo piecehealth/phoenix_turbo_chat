@@ -1,0 +1,23 @@
+<h1>Show Room</h1>
+
+<%= turbo_stream_tag(@conn, @room) %>
+
+<turbo-frame id="room">
+  <p>
+    <strong>Name:</strong>
+    <%= @room.name %>
+  </p>
+  <p>
+    <span><%= link "Edit", to: Routes.room_path(@conn, :edit, @room) %></span>
+    <span><%= link "Back", to: Routes.room_path(@conn, :index), data: [ "turbo-frame": "_top" ] %></span>
+  </p>
+</turbo-frame>
+
+<div id="messages">
+<%= for message <- @room.messages do %>
+  <%= render ChatWeb.MessageView, "message.html", message: message %>
+<% end %>
+</div>
+
+<turbo-frame id="new_message" src="<%= Routes.room_message_path(@conn, :new, @room) %>" target="_top">
+</turbo-frame>

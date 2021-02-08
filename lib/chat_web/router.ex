@@ -7,6 +7,7 @@ defmodule ChatWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :handle_turbo_frame
   end
 
   pipeline :api do
@@ -17,6 +18,10 @@ defmodule ChatWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    resources "/rooms", RoomController do
+      resources "/messages", MessageController
+    end
   end
 
   # Other scopes may use custom stacks.
